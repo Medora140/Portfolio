@@ -195,7 +195,7 @@ export default function Skills() {
         const padX = 10 * scale;
         const padY = 5 * scale;
         const w = metrics.width + padX * 2;
-        const h = 20 * scale;
+        const h = 22 * scale;
 
         sCtx.fillStyle = `rgba(29, 31, 39, ${alpha * 0.85})`;
         sCtx.strokeStyle = `rgba(173, 198, 255, ${alpha * 0.4})`;
@@ -279,70 +279,70 @@ export default function Skills() {
   ];
 
   return (
-    <section className="relative max-w-7xl mx-auto px-5 md:px-12 py-20 scroll-mt-24" id="skills">
+    <section className="relative max-w-[1536px] w-full mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 py-20 lg:py-24 scroll-mt-24" id="skills">
       <div className="reveal-init reveal-in flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
         <div className="flex flex-col gap-2">
-          <span className="font-mono text-[11px] font-semibold uppercase text-secondary tracking-widest">
+          <span className="font-mono text-[11px] sm:text-[12px] font-semibold uppercase text-secondary tracking-widest">
             Core Capabilities
           </span>
-          <h2 className="font-headline text-[32px] md:text-[36px] text-on-surface font-bold">
+          <h2 className="font-headline text-[32px] sm:text-[40px] text-on-surface font-bold">
             Technical Stack &amp; Tooling
           </h2>
-          <p className="font-body text-[15px] text-on-surface-variant max-w-2xl">
+          <p className="font-body text-[16px] sm:text-[17px] text-on-surface-variant max-w-2xl">
             Comprehensive inventory of languages, deep learning frameworks, and modern frontend tools leveraged for production delivery.
           </p>
         </div>
-        <div className="flex items-center gap-2 bg-surface-container-low px-3 py-1.5 rounded-full border border-secondary/20">
-          <span className="material-symbols-outlined text-secondary text-[16px]">3d_rotation</span>
-          <span className="font-mono text-[12px] text-secondary">Interactive 3D Constellation</span>
+        <div className="flex items-center gap-2 bg-surface-container-low px-3.5 py-2 rounded-full border border-secondary/20">
+          <span className="material-symbols-outlined text-secondary text-[18px]">3d_rotation</span>
+          <span className="font-mono text-[12px] sm:text-[13px] text-secondary">Interactive 3D Constellation</span>
         </div>
       </div>
 
       {/* 3D Skills Constellation Interactive Canvas Banner */}
-      <div className="reveal-init reveal-in delay-100 mb-12 rounded-2xl bg-surface-container-low/80 backdrop-blur-md border border-white/[0.05] p-4 overflow-hidden relative shadow-lg">
-        <div className="flex items-center justify-between pb-3 border-b border-white/[0.04] mb-2">
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-            <span className="font-mono text-xs text-primary uppercase tracking-wider font-semibold">
+      <div className="reveal-init reveal-in delay-100 mb-12 rounded-2xl bg-surface-container-low/80 backdrop-blur-md border border-white/[0.05] p-5 sm:p-6 overflow-hidden relative shadow-lg">
+        <div className="flex items-center justify-between pb-3.5 border-b border-white/[0.04] mb-3">
+          <div className="flex items-center gap-2.5">
+            <span className="w-2.5 h-2.5 rounded-full bg-primary animate-pulse"></span>
+            <span className="font-mono text-xs sm:text-sm text-primary uppercase tracking-wider font-semibold">
               Neural Skills Sphere (Drag to Orbit)
             </span>
           </div>
-          <span className="font-mono text-outline text-[11px] uppercase tracking-wider">
+          <span className="font-mono text-outline text-[11px] sm:text-[12px] uppercase tracking-wider">
             3D PROJECTION SYSTEM
           </span>
         </div>
         <div
           ref={sphereContainerRef}
           id="skills-sphere-container"
-          className="relative w-full h-64 md:h-72 flex items-center justify-center cursor-grab active:cursor-grabbing select-none"
+          className="relative w-full h-72 md:h-84 lg:h-96 flex items-center justify-center cursor-grab active:cursor-grabbing select-none"
         >
           <canvas ref={sphereCanvasRef} id="skills-sphere-canvas" className="w-full h-full"></canvas>
         </div>
       </div>
 
       {/* 3 Skill Categorization Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
         {skillCategories.map((cat, idx) => (
           <div 
             key={idx}
             onMouseMove={handleTiltMouseMove}
             onMouseLeave={handleTiltMouseLeave}
-            className={`reveal-init reveal-in delay-${(idx + 1) * 100} tilt-card interactive-card bg-surface-container-low rounded-2xl p-6 shadow-md flex flex-col gap-4 border border-white/[0.05]`}
+            className={`reveal-init reveal-in delay-${(idx + 1) * 100} tilt-card interactive-card bg-surface-container-low rounded-2xl p-6 sm:p-8 shadow-md flex flex-col gap-5 border border-white/[0.05]`}
           >
-            <div className="flex items-center gap-3 pb-3 border-b border-white/[0.06]">
-              <span className={`material-symbols-outlined text-[24px] ${cat.iconColor}`}>
+            <div className="flex items-center gap-3 pb-3.5 border-b border-white/[0.06]">
+              <span className={`material-symbols-outlined text-[26px] ${cat.iconColor}`}>
                 {cat.icon}
               </span>
-              <h3 className="font-headline text-[18px] text-on-surface font-bold">
+              <h3 className="font-headline text-[20px] sm:text-[22px] text-on-surface font-bold">
                 {cat.title}
               </h3>
             </div>
 
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2.5">
               {cat.skills.map((skill, sIdx) => (
                 <span 
                   key={sIdx}
-                  className="tag-pill inline-flex items-center gap-2 bg-surface-container-high px-3 py-2 rounded-lg font-mono text-[13px] text-on-surface border border-white/[0.04]"
+                  className="tag-pill inline-flex items-center gap-2 bg-surface-container-high px-3.5 py-2 rounded-lg font-mono text-[13px] sm:text-[14px] text-on-surface border border-white/[0.04]"
                 >
                   <span className={`w-2 h-2 rounded-full ${skill.dotColor}`}></span>
                   {skill.name}
@@ -350,7 +350,7 @@ export default function Skills() {
               ))}
             </div>
 
-            <p className="font-body text-[13px] text-on-surface-variant mt-auto pt-2">
+            <p className="font-body text-[14px] sm:text-[15px] text-on-surface-variant mt-auto pt-3">
               {cat.description}
             </p>
           </div>

@@ -74,16 +74,16 @@ export default function Projects() {
   ];
 
   return (
-    <section className="relative max-w-7xl mx-auto px-5 md:px-12 py-20 scroll-mt-24" id="projects">
+    <section className="relative max-w-[1536px] w-full mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 py-20 lg:py-24 scroll-mt-24" id="projects">
       <div className="reveal-init reveal-in flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
         <div className="flex flex-col gap-2">
-          <span className="font-mono text-[11px] font-semibold uppercase text-primary tracking-widest">
+          <span className="font-mono text-[11px] sm:text-[12px] font-semibold uppercase text-primary tracking-widest">
             Engineered Work
           </span>
-          <h2 className="font-headline text-[32px] md:text-[36px] text-on-surface font-bold">
+          <h2 className="font-headline text-[32px] sm:text-[40px] text-on-surface font-bold">
             Featured AI &amp; Software Projects
           </h2>
-          <p className="font-body text-[15px] text-on-surface-variant max-w-xl">
+          <p className="font-body text-[16px] sm:text-[17px] text-on-surface-variant max-w-2xl">
             Selected repositories demonstrating deep neural network training, inference optimization, and modern production web user experiences.
           </p>
         </div>
@@ -93,7 +93,7 @@ export default function Projects() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 xl:gap-10">
         {projects.map((proj, idx) => (
           <div 
             key={proj.id}
@@ -101,16 +101,16 @@ export default function Projects() {
             onMouseLeave={handleTiltMouseLeave}
             className={`reveal-init reveal-in ${idx % 2 === 0 ? 'delay-100' : 'delay-200'} tilt-card interactive-card group relative bg-surface-container-low rounded-2xl overflow-hidden shadow-lg border border-white/[0.05] flex flex-col justify-between`}
           >
-            {/* Card Thumbnail */}
-            <div className="relative w-full h-56 overflow-hidden bg-surface-container-lowest">
+            {/* Immersive Card Thumbnail */}
+            <div className="relative w-full h-64 sm:h-72 lg:h-80 overflow-hidden bg-surface-container-lowest">
               <img 
                 alt={proj.title}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                 src={proj.image}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-surface-container-low via-surface-container-low/40 to-transparent"></div>
-              <div className="absolute top-4 left-4 bg-surface-container-lowest/80 backdrop-blur-md px-3 py-1 rounded-full border border-white/[0.1]">
-                <span className={`font-mono text-[12px] font-semibold ${
+              <div className="absolute top-4 left-4 bg-surface-container-lowest/80 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/[0.1]">
+                <span className={`font-mono text-[12px] sm:text-[13px] font-semibold ${
                   proj.accentColor === 'secondary' ? 'text-secondary' : proj.accentColor === 'tertiary' ? 'text-tertiary' : 'text-primary'
                 }`}>
                   {proj.category}
@@ -119,24 +119,24 @@ export default function Projects() {
             </div>
 
             {/* Content Details */}
-            <div className="p-6 flex flex-col gap-4 flex-grow">
-              <div className="flex flex-col gap-1.5">
-                <h3 className={`font-headline text-[22px] text-on-surface font-bold transition-colors ${
+            <div className="p-6 sm:p-8 flex flex-col gap-4 flex-grow">
+              <div className="flex flex-col gap-2">
+                <h3 className={`font-headline text-[22px] sm:text-[24px] text-on-surface font-bold transition-colors ${
                   proj.accentColor === 'secondary' ? 'group-hover:text-secondary' : proj.accentColor === 'tertiary' ? 'group-hover:text-tertiary' : 'group-hover:text-primary'
                 }`}>
                   {proj.title}
                 </h3>
-                <p className="font-body text-[15px] text-on-surface-variant leading-relaxed">
+                <p className="font-body text-[15px] sm:text-[16px] text-on-surface-variant leading-relaxed">
                   {proj.description}
                 </p>
               </div>
 
               {/* Tech Tags */}
-              <div className="flex flex-wrap gap-2 mt-auto">
+              <div className="flex flex-wrap gap-2.5 mt-auto pt-2">
                 {proj.tags.map((tag) => (
                   <span 
                     key={tag}
-                    className={`tag-pill bg-surface-container border border-white/[0.04] px-2.5 py-1 rounded-md font-mono text-[12px] ${
+                    className={`tag-pill bg-surface-container border border-white/[0.04] px-3 py-1.5 rounded-md font-mono text-[12px] sm:text-[13px] ${
                       proj.accentColor === 'secondary' ? 'text-secondary' : proj.accentColor === 'tertiary' ? 'text-tertiary' : 'text-primary'
                     }`}
                   >
@@ -146,14 +146,14 @@ export default function Projects() {
               </div>
 
               {/* Action Footer */}
-              <div className="pt-4 border-t border-white/[0.06] flex items-center justify-between">
+              <div className="pt-5 border-t border-white/[0.06] flex items-center justify-between">
                 <a 
                   href={proj.github} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="magnetic-btn inline-flex items-center gap-1.5 font-mono text-[14px] text-on-surface hover:text-primary transition-colors duration-200"
                 >
-                  <span className="material-symbols-outlined text-[18px]">code</span>
+                  <span className="material-symbols-outlined text-[20px]">code</span>
                   <span>GitHub Repo</span>
                 </a>
                 <a 
@@ -163,7 +163,7 @@ export default function Projects() {
                   }`}
                 >
                   <span>{proj.demoLabel}</span>
-                  <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+                  <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
                 </a>
               </div>
             </div>
