@@ -12,6 +12,11 @@ export default function Footer() {
           {/* Logo & Subtitle */}
           <div className="flex flex-col sm:flex-row items-center gap-4">
             <div className="flex items-center gap-3">
+              <img 
+                alt="MG Monogram Logo" 
+                className="h-7 w-auto object-contain" 
+                src="https://lh3.googleusercontent.com/aida/AEtjO1WaWn9mNngHPSoWjZrmG8k8atI_Hie9bvoKeJ4WRbdJTOmF_0aFU3C4y5ID6l8hYz9Lu71ja_3yqbXA-gLkuRDyuhBO3L6mhtricCmhzVkPxEepJxPPe3DDyNKFEmbuXgOtEcc7NTa9dgrtPC3ENd7pfR4kXyDjKdEXPaKTV4uxH-HzuUB8Of3_z6c991MLK3-0IqtP9oA-if1kkwgwzZvoVSqTlVGUsNKmPJSE5wrz3A" 
+              />
               <span className="font-headline text-[18px] text-on-surface font-bold tracking-tight">
                 Medora Gomes
               </span>
@@ -25,38 +30,38 @@ export default function Footer() {
           {/* Social Icons */}
           <div className="flex items-center gap-2">
             <a
-              className="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all duration-200 border border-white/[0.04]"
+              className="magnetic-btn w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all duration-200 border border-white/[0.04]"
               href="https://github.com/Medora140"
               target="_blank"
               rel="noopener noreferrer"
-              title="GitHub"
+              title="GitHub Profile"
             >
               <span className="material-symbols-outlined text-[20px]">code</span>
             </a>
             <a
-              className="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all duration-200 border border-white/[0.04]"
+              className="magnetic-btn w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all duration-200 border border-white/[0.04]"
               href="https://www.linkedin.com/in/medora-gomes-1a97a0329/"
               target="_blank"
               rel="noopener noreferrer"
-              title="LinkedIn"
+              title="LinkedIn Profile"
             >
               <span className="material-symbols-outlined text-[20px]">share</span>
             </a>
             <a
-              className="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all duration-200 border border-white/[0.04]"
+              className="magnetic-btn w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all duration-200 border border-white/[0.04]"
               href="https://leetcode.com/u/MedoraC/"
               target="_blank"
               rel="noopener noreferrer"
-              title="LeetCode"
+              title="LeetCode Handle"
             >
               <span className="material-symbols-outlined text-[20px]">terminal</span>
             </a>
             <a
-              className="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all duration-200 border border-white/[0.04]"
+              className="magnetic-btn w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all duration-200 border border-white/[0.04]"
               href="https://www.geeksforgeeks.org/profile/medorago5em2"
               target="_blank"
               rel="noopener noreferrer"
-              title="GeeksforGeeks"
+              title="GeeksforGeeks Stats"
             >
               <span className="material-symbols-outlined text-[20px]">data_object</span>
             </a>

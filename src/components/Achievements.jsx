@@ -1,10 +1,35 @@
 import React from 'react';
 
 export default function Achievements() {
+  const handleTiltMouseMove = (e) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateX = ((y - centerY) / centerY) * -4;
+    const rotateY = ((x - centerX) / centerX) * 4;
+
+    card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-4px)`;
+    card.style.setProperty('--mouse-x', `${x}px`);
+    card.style.setProperty('--mouse-y', `${y}px`);
+  };
+
+  const handleTiltMouseLeave = (e) => {
+    const card = e.currentTarget;
+    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+  };
+
   return (
     <section className="relative max-w-7xl mx-auto px-5 md:px-12 py-20 scroll-mt-24" id="achievements">
-      {/* Highlight Banner */}
-      <div className="reveal-in interactive-card relative rounded-3xl overflow-hidden bg-gradient-to-br from-surface-container via-surface-container-low to-surface-container-lowest p-6 md:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.6)] border border-white/[0.08]">
+      {/* Highlight Banner with Tilt & Glow */}
+      <div 
+        onMouseMove={handleTiltMouseMove}
+        onMouseLeave={handleTiltMouseLeave}
+        className="reveal-init reveal-in tilt-card interactive-card relative rounded-3xl overflow-hidden bg-gradient-to-br from-surface-container via-surface-container-low to-surface-container-lowest p-6 md:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.6)] border border-white/[0.08]"
+      >
         {/* Ambient Radial Lights */}
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-primary/20 rounded-full blur-[100px] pointer-events-none"></div>
         <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-secondary-container/30 rounded-full blur-[100px] pointer-events-none"></div>
@@ -27,6 +52,14 @@ export default function Achievements() {
 
             {/* Accolade Micro Badges */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+              <div className="tag-pill bg-surface-container-high/60 p-3 rounded-xl flex items-center gap-3 border border-white/[0.04]">
+                <span className="material-symbols-outlined text-primary text-[24px]">verified</span>
+                <div className="flex flex-col">
+                  <span className="font-headline text-[16px] text-on-surface font-bold">Top 1%</span>
+                  <span className="font-body text-[12px] text-on-surface-variant">Dept. Academic Rank</span>
+                </div>
+              </div>
+
               <div className="tag-pill bg-surface-container-high/60 p-3 rounded-xl flex items-center gap-3 border border-white/[0.04]">
                 <span className="material-symbols-outlined text-secondary text-[24px]">military_tech</span>
                 <div className="flex flex-col">
@@ -59,7 +92,7 @@ export default function Achievements() {
               Nationwide Merit
             </span>
             <span className="font-mono text-[11px] text-outline mt-0.5 uppercase tracking-wider">
-              2026 Showcase
+              2024 Showcase
             </span>
           </div>
         </div>

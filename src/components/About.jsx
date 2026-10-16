@@ -1,9 +1,30 @@
 import React from 'react';
 
 export default function About() {
+  const handleTiltMouseMove = (e) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateX = ((y - centerY) / centerY) * -5;
+    const rotateY = ((x - centerX) / centerX) * 5;
+
+    card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-4px)`;
+    card.style.setProperty('--mouse-x', `${x}px`);
+    card.style.setProperty('--mouse-y', `${y}px`);
+  };
+
+  const handleTiltMouseLeave = (e) => {
+    const card = e.currentTarget;
+    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+  };
+
   return (
     <section className="relative max-w-7xl mx-auto px-5 md:px-12 py-20 scroll-mt-24" id="about">
-      <div className="reveal-in flex flex-col gap-2 mb-8">
+      <div className="reveal-init reveal-in flex flex-col gap-2 mb-8">
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-secondary"></span>
           <span className="font-mono text-[11px] font-semibold uppercase text-secondary tracking-widest">
@@ -20,7 +41,11 @@ export default function About() {
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
         {/* Left Narrative Card */}
-        <div className="reveal-in lg:col-span-8 relative rounded-3xl bg-surface-container-low/90 backdrop-blur-xl p-6 md:p-8 border border-white/[0.07] shadow-xl overflow-hidden interactive-card flex flex-col justify-between">
+        <div
+          onMouseMove={handleTiltMouseMove}
+          onMouseLeave={handleTiltMouseLeave}
+          className="reveal-init reveal-in delay-100 lg:col-span-8 relative rounded-3xl bg-surface-container-low/90 backdrop-blur-xl p-6 md:p-8 border border-white/[0.07] shadow-xl overflow-hidden tilt-card interactive-card flex flex-col justify-between"
+        >
           {/* Subtle radial glow */}
           <div className="absolute -top-24 -left-24 w-80 h-80 bg-primary/15 rounded-full blur-[90px] pointer-events-none"></div>
 
@@ -64,8 +89,12 @@ export default function About() {
         </div>
 
         {/* Right Side Visual / Engineering Architecture Box */}
-        <div className="reveal-in lg:col-span-4 flex flex-col gap-4">
-          <div className="interactive-card bg-surface-container-low/90 backdrop-blur-xl p-6 rounded-3xl border border-white/[0.06] shadow-lg flex-1 flex flex-col justify-between">
+        <div className="reveal-init reveal-in delay-200 lg:col-span-4 flex flex-col gap-4">
+          <div
+            onMouseMove={handleTiltMouseMove}
+            onMouseLeave={handleTiltMouseLeave}
+            className="tilt-card interactive-card bg-surface-container-low/90 backdrop-blur-xl p-6 rounded-3xl border border-white/[0.06] shadow-lg flex-1 flex flex-col justify-between"
+          >
             <div className="flex items-center justify-between pb-3 border-b border-white/[0.06]">
               <span className="font-mono text-[12px] text-primary uppercase tracking-wider font-semibold">
                 System Architecture
@@ -105,7 +134,11 @@ export default function About() {
             </div>
           </div>
 
-          <div className="interactive-card bg-surface-container-high/40 p-4 rounded-2xl border border-white/[0.05] flex items-center gap-3">
+          <div
+            onMouseMove={handleTiltMouseMove}
+            onMouseLeave={handleTiltMouseLeave}
+            className="tilt-card interactive-card bg-surface-container-high/40 p-4 rounded-2xl border border-white/[0.05] flex items-center gap-3"
+          >
             <div className="w-10 h-10 rounded-xl bg-primary/15 text-primary flex items-center justify-center shrink-0">
               <span className="material-symbols-outlined text-[22px]">rocket_launch</span>
             </div>

@@ -1,9 +1,30 @@
 import React from 'react';
 
 export default function Experience() {
+  const handleTiltMouseMove = (e) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateX = ((y - centerY) / centerY) * -5;
+    const rotateY = ((x - centerX) / centerX) * 5;
+
+    card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-4px)`;
+    card.style.setProperty('--mouse-x', `${x}px`);
+    card.style.setProperty('--mouse-y', `${y}px`);
+  };
+
+  const handleTiltMouseLeave = (e) => {
+    const card = e.currentTarget;
+    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+  };
+
   return (
     <section className="relative max-w-7xl mx-auto px-5 md:px-12 py-20 scroll-mt-24" id="experience">
-      <div className="reveal-in flex flex-col gap-2 mb-12">
+      <div className="reveal-init reveal-in flex flex-col gap-2 mb-12">
         <span className="font-mono text-[11px] font-semibold uppercase text-primary tracking-widest">
           Career Trajectory
         </span>
@@ -17,7 +38,7 @@ export default function Experience() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Experience Column */}
-        <div className="reveal-in flex flex-col gap-6">
+        <div className="reveal-init reveal-in delay-100 flex flex-col gap-6">
           <div className="flex items-center gap-3 pb-3 border-b border-white/[0.06]">
             <span className="material-symbols-outlined text-primary text-[28px]">terminal</span>
             <h3 className="font-headline text-[24px] text-on-surface font-bold">
@@ -25,8 +46,12 @@ export default function Experience() {
             </h3>
           </div>
 
-          {/* Experience Card: Zarthi */}
-          <div className="interactive-card relative bg-surface-container-low rounded-2xl p-6 shadow-lg border border-white/[0.05]">
+          {/* Experience Card: Zarthi with Tilt */}
+          <div
+            onMouseMove={handleTiltMouseMove}
+            onMouseLeave={handleTiltMouseLeave}
+            className="tilt-card interactive-card relative bg-surface-container-low rounded-2xl p-6 shadow-lg border border-white/[0.05]"
+          >
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-white/[0.04]">
               <div>
                 <span className="inline-block px-2.5 py-0.5 rounded-full bg-primary/10 text-primary font-mono text-[11px] font-semibold uppercase mb-1 border border-primary/20">
@@ -92,7 +117,7 @@ export default function Experience() {
         </div>
 
         {/* Education Column */}
-        <div className="reveal-in flex flex-col gap-6">
+        <div className="reveal-init reveal-in delay-200 flex flex-col gap-6">
           <div className="flex items-center gap-3 pb-3 border-b border-white/[0.06]">
             <span className="material-symbols-outlined text-secondary text-[28px]">school</span>
             <h3 className="font-headline text-[24px] text-on-surface font-bold">
@@ -100,8 +125,12 @@ export default function Experience() {
             </h3>
           </div>
 
-          {/* Education Card */}
-          <div className="interactive-card relative bg-surface-container-low rounded-2xl p-6 shadow-lg border border-white/[0.05]">
+          {/* Education Card with Tilt */}
+          <div
+            onMouseMove={handleTiltMouseMove}
+            onMouseLeave={handleTiltMouseLeave}
+            className="tilt-card interactive-card relative bg-surface-container-low rounded-2xl p-6 shadow-lg border border-white/[0.05]"
+          >
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-white/[0.04]">
               <div>
                 <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-container/40 text-secondary font-mono text-[12px] font-bold shadow-[0_0_12px_rgba(87,27,193,0.3)] mb-1 border border-secondary/30">
@@ -117,7 +146,7 @@ export default function Experience() {
               </div>
               <div className="text-left sm:text-right">
                 <span className="font-mono text-[12px] text-outline">
-                  2024 – 2028
+                  2021 – 2025
                 </span>
                 <p className="font-mono text-[12px] text-on-surface-variant">
                   Bangalore, IN
@@ -125,7 +154,7 @@ export default function Experience() {
               </div>
             </div>
 
-            {/* Coursework Grid */}
+            {/* Deep Core Disciplines */}
             <div className="flex flex-col gap-3 pt-4">
               <span className="font-mono text-[11px] font-semibold text-outline uppercase tracking-wider">
                 Advanced Coursework &amp; Research Focus:
@@ -152,6 +181,12 @@ export default function Experience() {
                   <span>Data Structures, Algorithms &amp; Computational Complexity</span>
                 </div>
               </div>
+            </div>
+
+            {/* Honor Footnote */}
+            <div className="mt-6 pt-4 border-t border-white/[0.04] flex items-center justify-between text-on-surface-variant font-mono text-[12px]">
+              <span className="text-secondary font-mono">Dean's Honor Roll · Consecutive Semesters</span>
+              <span className="material-symbols-outlined text-secondary text-[18px]">verified</span>
             </div>
           </div>
         </div>

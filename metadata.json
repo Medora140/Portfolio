@@ -1,0 +1,8 @@
+{
+  "name": "Medora Gomes - Portfolio",
+  "description": "Portfolio of Medora Gomes — Artificial Intelligence & Machine Learning Undergraduate at BMSIT&M, Frontend Developer, building intelligent acoustic AI systems, computer vision models, and responsive web applications.",
+  "permissions": [],
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

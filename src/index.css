@@ -19,39 +19,88 @@
   display: none;
 }
 
-/* Reveal animation keyframes & staggered entrance classes */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(28px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Initial cybernetic curtain overlay */
+#cyber-curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background-color: #0b0e15;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.85s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.85s ease;
+  will-change: transform, opacity;
+  pointer-events: all;
+}
+#cyber-curtain.curtain-hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+.curtain-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #3b82f6, #8b5cf6, #38bdf8, transparent);
+  box-shadow: 0 0 16px #3b82f6, 0 0 32px #8b5cf6;
 }
 
+/* Enhanced blur-to-focus reveals */
 .reveal-init {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
+  filter: blur(6px);
+  transform: scale(0.98) translateY(24px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+              filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform, filter;
 }
 
 .reveal-in {
   opacity: 1 !important;
-  transform: translateY(0) !important;
+  filter: blur(0px) !important;
+  transform: scale(1) translateY(0) !important;
 }
 
-/* Stagger delays */
+/* Stagger delay classes */
+.delay-50 { transition-delay: 50ms; }
 .delay-100 { transition-delay: 100ms; }
 .delay-150 { transition-delay: 150ms; }
 .delay-200 { transition-delay: 200ms; }
 .delay-250 { transition-delay: 250ms; }
 .delay-300 { transition-delay: 300ms; }
 .delay-400 { transition-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; }
 
-/* Micro-interaction enhancement styles */
+/* 3D tilt cards & dynamic neon mouse tracking glow */
+.tilt-card {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+  will-change: transform;
+}
+.tilt-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: radial-gradient(350px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(77, 142, 255, 0.45), rgba(183, 109, 255, 0.2), transparent 70%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+}
+.tilt-card:hover::before {
+  opacity: 1;
+}
+
 .interactive-card {
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease;
 }
@@ -67,6 +116,13 @@
   transform: translateY(-1.5px);
   background-color: #272a32;
   border-color: rgba(173, 198, 255, 0.45);
+}
+
+/* Magnetic button helper */
+.magnetic-btn {
+  display: inline-flex;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
 }
 
 /* CTA glowing shimmer */
@@ -91,19 +147,37 @@
 }
 .shimmer-btn:hover {
   box-shadow: 0 0 28px rgba(77, 142, 255, 0.55);
-  transform: scale(1.025);
+}
+
+/* Decode text cursor blink */
+.decode-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 0.9em;
+  background-color: #adc6ff;
+  margin-left: 2px;
+  vertical-align: middle;
+  animation: cursorBlink 0.8s infinite;
+}
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html, body {
     scroll-behavior: auto !important;
   }
+  #cyber-curtain {
+    display: none !important;
+  }
   .reveal-init {
     opacity: 1 !important;
+    filter: none !important;
     transform: none !important;
     transition: none !important;
   }
-  .interactive-card, .tag-pill, .shimmer-btn {
+  .interactive-card, .tilt-card, .tag-pill, .shimmer-btn, .magnetic-btn {
     transition: none !important;
     transform: none !important;
   }

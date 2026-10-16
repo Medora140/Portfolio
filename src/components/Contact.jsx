@@ -22,7 +22,7 @@ export default function Contact() {
     <section className="relative max-w-7xl mx-auto px-5 md:px-12 py-20 pb-32 scroll-mt-24" id="contact">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
         {/* Contact Narrative */}
-        <div className="reveal-in lg:col-span-5 flex flex-col gap-6">
+        <div className="reveal-init reveal-in delay-100 lg:col-span-5 flex flex-col gap-6">
           <div className="flex flex-col gap-2">
             <span className="font-mono text-[11px] font-semibold uppercase text-primary tracking-widest">
               Let's Connect
@@ -46,10 +46,10 @@ export default function Contact() {
                   Email Inquiries
                 </span>
                 <a
-                  href="mailto:medoragomes1402@gmail.com"
+                  href="mailto:medora.gomes@bmsit.in"
                   className="font-body text-[15px] text-on-surface hover:text-primary font-medium transition-colors"
                 >
-                  medoragomes1402@gmail.com
+                  medora.gomes@bmsit.in
                 </a>
               </div>
             </div>
@@ -71,7 +71,7 @@ export default function Contact() {
         </div>
 
         {/* Contact Form Card */}
-        <div className="reveal-in lg:col-span-7 bg-surface-container-low rounded-2xl p-6 md:p-8 shadow-xl border border-white/[0.05]">
+        <div className="reveal-init reveal-in delay-200 lg:col-span-7 bg-surface-container-low rounded-2xl p-6 md:p-8 shadow-xl border border-white/[0.05]">
           <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="flex flex-col gap-1.5">
@@ -137,7 +137,7 @@ export default function Contact() {
             <div className="flex items-center justify-between pt-2">
               <button
                 type="submit"
-                className="shimmer-btn inline-flex items-center gap-2 px-6 py-3 rounded-lg font-mono text-[14px] font-semibold bg-primary-container text-on-primary-container hover:bg-primary hover:text-on-primary shadow-[0_0_20px_rgba(77,142,255,0.35)]"
+                className="magnetic-btn shimmer-btn inline-flex items-center gap-2 px-6 py-3 rounded-lg font-mono text-[14px] font-semibold bg-primary-container text-on-primary-container hover:bg-primary hover:text-on-primary shadow-[0_0_20px_rgba(77,142,255,0.35)]"
               >
                 <span>Send Message</span>
                 <span className="material-symbols-outlined text-[18px]">send</span>

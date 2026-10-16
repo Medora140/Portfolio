@@ -18,9 +18,13 @@ export default function Header({ activeSection }) {
         {/* Logo and Brand */}
         <div className="flex items-center gap-4">
           <a href="#" className="flex items-center gap-3 group">
-
+            <img 
+              alt="MG Monogram Logo" 
+              className="h-8 w-auto object-contain transition-transform duration-300 group-hover:scale-110" 
+              src="https://lh3.googleusercontent.com/aida/AEtjO1WaWn9mNngHPSoWjZrmG8k8atI_Hie9bvoKeJ4WRbdJTOmF_0aFU3C4y5ID6l8hYz9Lu71ja_3yqbXA-gLkuRDyuhBO3L6mhtricCmhzVkPxEepJxPPe3DDyNKFEmbuXgOtEcc7NTa9dgrtPC3ENd7pfR4kXyDjKdEXPaKTV4uxH-HzuUB8Of3_z6c991MLK3-0IqtP9oA-if1kkwgwzZvoVSqTlVGUsNKmPJSE5wrz3A" 
+            />
             <div className="flex flex-col">
-              <span className="font-headline-sm text-[20px] text-on-surface tracking-tight leading-none group-hover:text-primary transition-colors font-semibold">
+              <span className="font-headline text-[20px] text-on-surface tracking-tight leading-none group-hover:text-primary transition-colors font-semibold">
                 Medora Gomes
               </span>
               <span className="font-mono text-[12px] text-on-surface-variant mt-0.5">
@@ -46,10 +50,11 @@ export default function Header({ activeSection }) {
               <a
                 key={link.id}
                 href={link.href}
-                className={`font-body text-[13px] px-3.5 py-1.5 rounded-full transition-all duration-200 ${isActive
-                  ? 'bg-surface-container-high text-primary font-semibold shadow-sm'
-                  : 'text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high'
-                  }`}
+                className={`font-body text-[13px] px-3.5 py-1.5 rounded-full transition-all duration-200 ${
+                  isActive
+                    ? 'bg-surface-container-high text-primary font-semibold shadow-sm'
+                    : 'text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high'
+                }`}
               >
                 {link.name}
               </a>
@@ -62,7 +67,7 @@ export default function Header({ activeSection }) {
           {/* Social Icons */}
           <div className="hidden md:flex items-center gap-1 bg-surface-container-low px-1.5 py-1 rounded-full border border-white/[0.05]">
             <a
-              className="w-8 h-8 rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-high hover:scale-110 transition-all duration-200"
+              className="magnetic-btn w-8 h-8 rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all duration-200"
               href="https://github.com/Medora140"
               target="_blank"
               rel="noopener noreferrer"
@@ -71,7 +76,7 @@ export default function Header({ activeSection }) {
               <span className="material-symbols-outlined text-[18px]">code</span>
             </a>
             <a
-              className="w-8 h-8 rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-high hover:scale-110 transition-all duration-200"
+              className="magnetic-btn w-8 h-8 rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all duration-200"
               href="https://www.linkedin.com/in/medora-gomes-1a97a0329/"
               target="_blank"
               rel="noopener noreferrer"
@@ -80,7 +85,7 @@ export default function Header({ activeSection }) {
               <span className="material-symbols-outlined text-[18px]">share</span>
             </a>
             <a
-              className="w-8 h-8 rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-high hover:scale-110 transition-all duration-200"
+              className="magnetic-btn w-8 h-8 rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all duration-200"
               href="https://leetcode.com/u/MedoraC/"
               target="_blank"
               rel="noopener noreferrer"
@@ -89,7 +94,7 @@ export default function Header({ activeSection }) {
               <span className="material-symbols-outlined text-[18px]">terminal</span>
             </a>
             <a
-              className="w-8 h-8 rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-high hover:scale-110 transition-all duration-200"
+              className="magnetic-btn w-8 h-8 rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all duration-200"
               href="https://www.geeksforgeeks.org/profile/medorago5em2"
               target="_blank"
               rel="noopener noreferrer"
@@ -102,7 +107,7 @@ export default function Header({ activeSection }) {
           {/* Shimmer CTA Button */}
           <a
             href="#contact"
-            className="shimmer-btn hidden sm:inline-flex items-center justify-center gap-2 font-mono text-[14px] font-semibold bg-primary-container text-on-primary-container hover:bg-primary hover:text-on-primary px-4 py-2 rounded-lg shadow-[0_0_20px_rgba(77,142,255,0.35)]"
+            className="magnetic-btn shimmer-btn hidden sm:inline-flex items-center justify-center gap-2 font-mono text-[14px] font-semibold bg-primary-container text-on-primary-container hover:bg-primary hover:text-on-primary px-4 py-2 rounded-lg shadow-[0_0_20px_rgba(77,142,255,0.35)]"
           >
             <span>Get in Touch</span>
             <span className="material-symbols-outlined text-[16px] transition-transform group-hover:translate-x-0.5">
@@ -115,7 +120,7 @@ export default function Header({ activeSection }) {
             <img
               alt="Medora Gomes Profile"
               className="w-8 h-8 rounded-full object-cover shadow-[0_0_12px_rgba(173,198,255,0.3)] ring-1 ring-primary/40 hover:ring-primary transition-all duration-300"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8EMcYZ9FpuuWLlc7FVMg7gQ1FZVtLv14DgNkHWyfqvAKhgsAOvDEgzVgP5TsJqU1LwKoAz-cklU5_poq-uFjhqCHa0GKK947go-zbceNBbH5DHOUkwVNgK8DALHIF4g_vQGEoCMTJAEF7KkAkHRKK4X6FHMK7vf9TTb721awVb-cVk3yOjo_guHSvfZO6uRoIGRprW0gjGwLmUxjTNq5WIVzoimLjFxB33rdSR4Q5Lq7czRgXg8zdVnyow9YSebDW-h8"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyl00KUFUZ6ZvIO8Yo8YaT1c5U2hnBDPbdEwg0OML6MJ18GsBnI1hoUshCSH-egdp3jCF7QqsTVKDkn1VL7dHMp8CofUmC5WGRqVxcBZY7h4gjykpHBgcF6QpztS7M48Yecq0J3vesu_ezo2APbIpeq28DL_ArZAWg0LVTAcFYq8woSZN-lPP-LLIrYJxGceRglIr5jAX8JCIEmyvTQI4qk5dTko08e9j1c-w04mYr3z_YnjDvowGhX6sYRv58xhHkcxI"
             />
           </div>
 
@@ -141,10 +146,11 @@ export default function Header({ activeSection }) {
               key={link.id}
               href={link.href}
               onClick={() => setMobileMenuOpen(false)}
-              className={`px-4 py-2.5 rounded-xl font-body text-[14px] transition-colors ${activeSection === link.id
-                ? 'bg-surface-container-high text-primary font-semibold'
-                : 'text-on-surface-variant hover:text-on-surface hover:bg-surface-container'
-                }`}
+              className={`px-4 py-2.5 rounded-xl font-body text-[14px] transition-colors ${
+                activeSection === link.id
+                  ? 'bg-surface-container-high text-primary font-semibold'
+                  : 'text-on-surface-variant hover:text-on-surface hover:bg-surface-container'
+              }`}
             >
               {link.name}
             </a>

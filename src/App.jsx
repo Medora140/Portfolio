@@ -11,7 +11,23 @@ import Footer from './components/Footer';
 
 export default function App() {
   const [activeSection, setActiveSection] = useState('about');
+  const [curtainHidden, setCurtainHidden] = useState(false);
+  const [curtainMounted, setCurtainMounted] = useState(true);
 
+  // Initial Cybernetic Curtain Reveal Animation
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setCurtainHidden(true);
+      const removeTimer = setTimeout(() => {
+        setCurtainMounted(false);
+      }, 950);
+      return () => clearTimeout(removeTimer);
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Scroll Spy for Navigation Highlighting
   useEffect(() => {
     const handleScroll = () => {
       const sections = ['about', 'experience', 'projects', 'skills', 'achievements', 'contact'];
@@ -32,6 +48,24 @@ export default function App() {
 
   return (
     <div className="bg-background text-on-surface min-h-screen relative overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+      {/* Initial Cybernetic Curtain Overlay */}
+      {curtainMounted && (
+        <div id="cyber-curtain" className={curtainHidden ? 'curtain-hidden' : ''}>
+          <div className="flex flex-col items-center gap-3">
+            <div className="flex items-center gap-2">
+              <span className="w-3 h-3 rounded-full bg-primary animate-ping"></span>
+              <span className="font-mono text-primary tracking-widest uppercase text-sm font-semibold">
+                INITIALIZING CYBERNETIC ENVIRONMENT
+              </span>
+            </div>
+            <span className="font-mono text-outline text-xs tracking-wider">
+              MEDORA GOMES · AI &amp; FRONTEND RUNTIME v2.5
+            </span>
+          </div>
+          <div className="curtain-line"></div>
+        </div>
+      )}
+
       {/* Ambient Lighting Orbs */}
       <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
         <div className="absolute -top-40 left-1/4 w-[600px] h-[500px] bg-primary/10 rounded-full blur-[140px]"></div>
