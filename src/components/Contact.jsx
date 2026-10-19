@@ -17,7 +17,7 @@ export default function Contact() {
 
     // FIXED: Using FormData layout directly from Web3Forms' documentation
     const formPayload = new FormData();
-    formPayload.append("access_key", "ee353e02-1a87-4c2b-bae3-1b8d275e07c5");
+    formPayload.append("access_key", import.meta.env.VITE_WEB3FORMS_KEY);
     formPayload.append("name", formData.name);
     formPayload.append("email", formData.email);
     formPayload.append("subject", formData.subject || "Portfolio Contact Form Submission");
