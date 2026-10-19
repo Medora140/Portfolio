@@ -7,15 +7,40 @@ export default function Contact() {
     subject: '',
     message: ''
   });
-  const [submitted, setSubmitted] = useState(false);
+  const [statusMessage, setStatusMessage] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    }, 5000);
+    setIsSubmitting(true);
+    setStatusMessage('Transmitting...');
+
+    // FIXED: Using FormData layout directly from Web3Forms' documentation
+    const formPayload = new FormData();
+    formPayload.append("access_key", "ee353e02-1a87-4c2b-bae3-1b8d275e07c5");
+    formPayload.append("name", formData.name);
+    formPayload.append("email", formData.email);
+    formPayload.append("subject", formData.subject || "Portfolio Contact Form Submission");
+    formPayload.append("message", formData.message);
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formPayload // FIXED: Sent as a multi-part form payload instead of a JSON string
+      }).then((res) => res.json());
+
+      if (res.success) {
+        setStatusMessage('Message transmitted successfully!');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        setStatusMessage('Transmission failed. Please try again.');
+      }
+    } catch (error) {
+      setStatusMessage('Network error. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+      setTimeout(() => setStatusMessage(''), 5000);
+    }
   };
 
   return (
@@ -39,7 +64,7 @@ export default function Contact() {
           <div className="flex flex-col gap-3.5 pt-2">
             <div className="tag-pill flex items-center gap-4 p-4 sm:p-5 rounded-2xl bg-surface-container-low border border-white/[0.04]">
               <span className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0">
-                <span className="material-symbols-outlined text-[22px]">mail</span>
+                <span className="material-symbols-outlined text-[22px]" aria-hidden="true">mail</span>
               </span>
               <div className="flex flex-col">
                 <span className="font-mono text-[11px] sm:text-[12px] font-semibold uppercase text-outline">
@@ -56,7 +81,7 @@ export default function Contact() {
 
             <div className="tag-pill flex items-center gap-4 p-4 sm:p-5 rounded-2xl bg-surface-container-low border border-white/[0.04]">
               <span className="w-11 h-11 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary shrink-0">
-                <span className="material-symbols-outlined text-[22px]">location_on</span>
+                <span className="material-symbols-outlined text-[22px]" aria-hidden="true">location_on</span>
               </span>
               <div className="flex flex-col">
                 <span className="font-mono text-[11px] sm:text-[12px] font-semibold uppercase text-outline">
@@ -80,6 +105,7 @@ export default function Contact() {
                 </label>
                 <input
                   id="name"
+                  name="name" // FIXED: Added matching explicit name parameter
                   type="text"
                   required
                   placeholder="e.g. Maya Lin"
@@ -95,6 +121,7 @@ export default function Contact() {
                 </label>
                 <input
                   id="email"
+                  name="email" // FIXED: Added matching explicit name parameter
                   type="email"
                   required
                   placeholder="maya@company.com"
@@ -111,6 +138,7 @@ export default function Contact() {
               </label>
               <input
                 id="subject"
+                name="subject" // FIXED: Added matching explicit name parameter
                 type="text"
                 placeholder="Frontend Role / AI Research Collaboration / Freelance"
                 value={formData.subject}
@@ -125,7 +153,8 @@ export default function Contact() {
               </label>
               <textarea
                 id="message"
-                rows="4"
+                name="message" // FIXED: Added matching explicit name parameter
+                rows={4}
                 required
                 placeholder="Tell me about your team or project requirements..."
                 value={formData.message}
@@ -136,16 +165,17 @@ export default function Contact() {
 
             <div className="flex items-center justify-between pt-2">
               <button
-                type="submit" disabled={submitted}
-                className="magnetic-btn shimmer-btn inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-mono text-[14px] sm:text-[15px] font-semibold bg-primary-container text-on-primary-container hover:bg-primary hover:text-on-primary shadow-[0_0_20px_rgba(77,142,255,0.35)]"
+                type="submit"
+                disabled={isSubmitting}
+                className="magnetic-btn shimmer-btn inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-mono text-[14px] sm:text-[15px] font-semibold bg-primary-container text-on-primary-container hover:bg-primary hover:text-on-primary disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-[0_0_20px_rgba(var(--primary-rgb),0.35)]"
               >
-                <span>Send Message</span>
-                <span className="material-symbols-outlined text-[18px]">send</span>
+                <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
+                <span className="material-symbols-outlined text-[18px]" aria-hidden="true">send</span>
               </button>
 
-              {submitted && (
-                <span className="font-mono text-[13px] sm:text-[14px] text-primary animate-pulse font-semibold">
-                  Message transmitted successfully!
+              {statusMessage && (
+                <span className="font-mono text-[13px] sm:text-[14px] text-primary animate-pulse font-semibold" role="status">
+                  {statusMessage}
                 </span>
               )}
             </div>
