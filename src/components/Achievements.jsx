@@ -56,7 +56,6 @@ export default function Achievements() {
                 <span className="material-symbols-outlined text-primary text-[26px]">verified</span>
                 <div className="flex flex-col">
                   <span className="font-headline text-[16px] sm:text-[18px] text-on-surface font-bold">Top 1%</span>
-                  <span className="font-body text-[12px] sm:text-[13px] text-on-surface-variant">Dept. Academic Rank</span>
                 </div>
               </div>
 

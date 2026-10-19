@@ -146,7 +146,7 @@ export default function Experience() {
               </div>
               <div className="text-left sm:text-right">
                 <span className="font-mono text-[12px] sm:text-[13px] text-outline">
-                  2021 – 2025
+                  2024 – 2028
                 </span>
                 <p className="font-mono text-[12px] sm:text-[13px] text-on-surface-variant">
                   Bangalore, IN
@@ -181,12 +181,6 @@ export default function Experience() {
                   <span>Data Structures, Algorithms &amp; Computational Complexity</span>
                 </div>
               </div>
-            </div>
-
-            {/* Honor Footnote */}
-            <div className="mt-7 pt-4 border-t border-white/[0.04] flex items-center justify-between text-on-surface-variant font-mono text-[12px] sm:text-[13px]">
-              <span className="text-secondary font-mono">Dean's Honor Roll · Consecutive Semesters</span>
-              <span className="material-symbols-outlined text-secondary text-[20px]">verified</span>
             </div>
           </div>
         </div>

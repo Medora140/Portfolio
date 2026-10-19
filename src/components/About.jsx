@@ -67,7 +67,7 @@ export default function About() {
 
             {/* Verbatim About Me Statement */}
             <p className="font-body text-slate-200 leading-relaxed text-justify md:text-left text-[17px] sm:text-[19px] xl:text-[20px] pt-2 font-normal">
-              I am an Artificial Intelligence and Machine Learning undergraduate at BMS Institute of Technology and Management. I specialize in building practical applications that bridge complex machine learning models with intuitive software design. Currently working as a Frontend Developer Intern, I combine my experience in deep learning, LLMs, and computer vision with modern web technologies like React and TypeScript to create end-to-end solutions. Whether it's developing AI voice clone detection systems or intelligent video QA tools, my goal is to make advanced AI accessible and impactful.
+              AI/ML Undergraduate at BMSIT&M and Frontend Developer Intern specializing in bridging deep learning, LLMs, and computer vision with modern web technologies like React and TypeScript. Experienced in building accessible, end-to-end intelligent applications—from AI voice clone detection to video QA platforms—that turn complex models into intuitive software solutions.
             </p>
           </div>
 

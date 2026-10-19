@@ -46,10 +46,10 @@ export default function Contact() {
                   Email Inquiries
                 </span>
                 <a
-                  href="mailto:medora.gomes@bmsit.in"
+                  href="mailto:medoragomes1402@gmail.com"
                   className="font-body text-[15px] sm:text-[16px] text-on-surface hover:text-primary font-medium transition-colors"
                 >
-                  medora.gomes@bmsit.in
+                  medoragomes1402@gmail.com
                 </a>
               </div>
             </div>
@@ -136,7 +136,7 @@ export default function Contact() {
 
             <div className="flex items-center justify-between pt-2">
               <button
-                type="submit"
+                type="submit" disabled={submitted}
                 className="magnetic-btn shimmer-btn inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-mono text-[14px] sm:text-[15px] font-semibold bg-primary-container text-on-primary-container hover:bg-primary hover:text-on-primary shadow-[0_0_20px_rgba(77,142,255,0.35)]"
               >
                 <span>Send Message</span>

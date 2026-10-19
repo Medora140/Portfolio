@@ -31,8 +31,8 @@ export default function Projects() {
       image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuA35G521zBTew3I0w73lJgRb9ZYnWLlQN_mpeWyn2CfI3zmxQRJrLv47dq_NQQgYHGCQIV_wsib956vaUlH3_nsr4srGYoQBuFpZ-eulBWZVqMjFlm7OTZGRfgVIeXCyTbR07OSsBZr7Ts_TiWhnGx2VkR-6vqu5u6mq_TwhS8PIrBraw2wntzYBcm7WS9gSdyIB3kk5Y00MDAf6ite6WGcjzgwu-lrjyfpKxYVpFVh',
       description: 'Real-time neural acoustic classifier designed to identify synthetic, deepfaked, and cloned human speech using deep temporal feature embeddings, mel-spectrogram extraction, and spectral anomaly scoring.',
       tags: ['WavLM', 'PyTorch', 'Librosa', 'Python', 'Flask'],
-      github: 'https://github.com/Medora140',
-      demo: '#',
+      github: 'https://github.com/Medora140/ai_voice_detection.git',
+      demo: 'https://huggingface.co/spaces/Dora14-x/ai-voice-detector',
       demoLabel: 'Live Demo / Research'
     },
     {
@@ -43,9 +43,7 @@ export default function Projects() {
       image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBv8mY_Bbq6vmO9ATHZaX1q-VVZeUjvSuQaTaz1jKCnjZC_79tyNCRd361GR5WmOFdomtNmj99JkxMhN0WXXYMRvzKB-IpQ1-aIzyCt8xKxhaS-eTQzo6mnAB59jqpSt76_JrJa_F9cwcqui9yffxQx5zVnmRUZbtrVradm22XJ7hovphmO12vP88z_S9asC01ckm1cG5Lyf-KNLf1jz633Ne60XcfSml2WzXYztGgX',
       description: 'Intelligent candidate resume parsing and ATS matching platform leveraging Large Language Models to compute semantic vector similarity, identify skill gaps, and provide contextual rewrite suggestions.',
       tags: ['LLMs (LangChain)', 'FastAPI', 'React', 'TypeScript'],
-      github: 'https://github.com/Medora140',
-      demo: '#',
-      demoLabel: 'Architecture Spec'
+      github: 'https://github.com/AyaanSanadi123/AI_resume.git'
     },
     {
       id: 3,
@@ -55,8 +53,8 @@ export default function Projects() {
       image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBNYNo9fVGIT_86uIP7rSTZp3s76opmJqVjwynBl-ZKSO7P4FTtpMVDQl12GE9GviV_KZpLutE2kaj2yWIp9Av9kyl7y4reHS4u0tT4XJuunV0iFNruz27pDGorXGwFUVKcjqH2zoUFTme_YRKP6wTyXCDApG-NSEbR7zoj0EfNObo6KOzSU13Qr_92gJkew4UH31mKtZsPdfhIkCXzP_9qSuhzXEf92S7dNkW4EsPk',
       description: 'Computer-aided diagnostic decision support tool analyzing thoracic CT scans to assist radiologists in early-stage pulmonary nodule detection with localized Class Activation Mapping (Grad-CAM).',
       tags: ['CNNs', 'TensorFlow', 'OpenCV', 'Python', 'Streamlit'],
-      github: 'https://github.com/Medora140',
-      demo: '#',
+      github: 'https://github.com/Medora140/lung-cancer-detection.git',
+      demo: 'https://lung-cancer-frontend.vercel.app/',
       demoLabel: 'Clinical Case Study'
     },
     {
@@ -67,9 +65,7 @@ export default function Projects() {
       image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC1fTts9RuoGppxzA31WoFIVPYutrDNrc22uUsDgaCLRt2XcGIn0BF43ux_eQZ5m11CZU2W924kO6uA1-K_5tLKsCoLzIbYlz-YJp2X0E2j1NeR_ZqNSuMmt1-uLMKoDn1mAK-BdwMOAA2NZm9qFC-W0QeCq-IFAtykFIYrWJsVoReyVm0W1CT1q7aIerSV1JZCVvf1Mf6VfhDbgfr90HE7s84iYKxIRfwTSt2Oc1t9',
       description: 'Interactive conversational multimodal framework extracting synchronized temporal video frames and Whisper audio transcripts to enable grounded, context-aware queries across lengthy educational lectures.',
       tags: ['Multimodal Transformers', 'Whisper', 'PyTorch', 'React', 'Node.js'],
-      github: 'https://github.com/Medora140',
-      demo: '#',
-      demoLabel: 'View Code & Demo'
+      github: 'https://github.com/Medora140/ExploreMe---An-AI-enhanced-video-content-finder.git',
     }
   ];
 
