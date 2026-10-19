@@ -416,7 +416,7 @@ export default function Hero() {
             9.41 <span className="text-[18px] text-secondary font-semibold">CGPA</span>
           </span>
           <span className="font-body text-[13px] sm:text-[14px] text-on-surface-variant">
-            BMSIT&amp;M Dept. Rank Top 1%
+            BMSIT&amp;M Dept.
           </span>
         </div>
 

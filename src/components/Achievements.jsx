@@ -91,7 +91,7 @@ export default function Achievements() {
               Nationwide Merit
             </span>
             <span className="font-mono text-[11px] sm:text-[12px] text-outline mt-0.5 uppercase tracking-wider">
-              2024 Showcase
+              2026 Showcase
             </span>
           </div>
         </div>

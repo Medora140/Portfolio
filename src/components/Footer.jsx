@@ -67,7 +67,7 @@ export default function Footer() {
 
         {/* Bottom Details */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-[12px] sm:text-[13px] text-outline">
-          <p>© 2025 Medora Gomes. Built with technical precision and design systems.</p>
+          <p>© 2026 Medora Gomes. Built with technical precision and design systems.</p>
           <div className="flex items-center gap-5">
             <span className="flex items-center gap-2 text-on-surface">
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
